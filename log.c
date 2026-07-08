@@ -78,10 +78,10 @@ double exp(double x) {
 }
 
 int main(void) {
-  printf("%.17lf\n", sqrt(10.0));
-  printf("%.17lf\n", log10(2.0));
-  printf("%.17lf\n", log(3.0));
-  printf("%.17lf\n", exp(5.4 * log(3.2)));
+  printf("%.7lf\n", sqrt(10.0));
+  printf("%.7lf\n", log10(2.0));
+  printf("%.7lf\n", log(3.0));
+  printf("%.7lf\n", exp(5.4 * log(3.2)));
   return 0;
 }
 

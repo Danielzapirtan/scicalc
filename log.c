@@ -50,9 +50,38 @@ double log10(double x) {
   return log(x) / log(10);
 }
 
+double sumexp(double x) {
+  double y = 0.0;
+  double f = 1.0;
+  double p = 1.0;
+  double i = 0.0;
+  while (1) {
+    double eps = p / f;
+    y += eps;
+    if (y == y + eps)
+      return y;
+    i += 1.0;
+    f *= i;
+    p *= x;
+  }
+}
+
+double exp(double x) {
+  if (x < 0)
+    return 1.0 / exp(-x);
+  if (x == 0)
+    return 1.0;
+  if (x < 1.0)
+    return sumexp(x);
+  double y = exp(x * 0.5);
+  return y * y;
+}
+
 int main(void) {
-  printf("%lf\n", sqrt(2.0));
-  printf("%lf\n", log10(2.0));
+  printf("%.17lf\n", sqrt(10.0));
+  printf("%.17lf\n", log10(2.0));
+  printf("%.17lf\n", log(3.0));
+  printf("%.17lf\n", exp(5.4 * log(3.2)));
   return 0;
 }
 

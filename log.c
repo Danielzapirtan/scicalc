@@ -81,7 +81,7 @@ int main(void) {
   printf("%.11lf\n", sqrt(10.0));
   printf("%.11lf\n", log10(2.0));
   printf("%.11lf\n", log(3.0));
-  printf("%.11lf\n", exp(5.4 * log(3.2)));
+  printf("%.11lf\n", exp(1.0));
   return 0;
 }
 

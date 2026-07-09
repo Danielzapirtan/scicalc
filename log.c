@@ -71,17 +71,17 @@ double exp(double x) {
     return 1.0 / exp(-x);
   if (x == 0)
     return 1.0;
-  if (x < 1.0)
+  if (x <= 2.0)
     return sumexp(x);
   double y = exp(x * 0.5);
   return y * y;
 }
 
 int main(void) {
-  printf("%.11lf\n", sqrt(10.0));
-  printf("%.11lf\n", log10(2.0));
-  printf("%.11lf\n", log(3.0));
-  printf("%.11lf\n", exp(1.0));
+  for (double x = 2.0; x < 20.0; x += 1.0) {
+    printf("%.5lf\n", log(x));
+    fflush(stdout);
+  }
   return 0;
 }
 

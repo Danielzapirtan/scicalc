@@ -11,7 +11,7 @@ double log(double x) {
     return 0.0;
   if (x < 1.0)
     return -log(1.0 / x);
-  if (x < sqrt(2.0))
+  if (x < sqrt(3.0))
     return sumlog(x);
   return 2.0 * log(sqrt(x));
 }
@@ -39,7 +39,7 @@ double sumlog(double x) {
     i += 1.0;
     z *= (-dx);
     double eps = z / i;
-    if (z == 0)
+    if (z * z == 0)
       break;
     y += eps;
   }
@@ -79,7 +79,7 @@ double exp(double x) {
 
 int main(void) {
   for (double x = 2.0; x < 20.0; x += 1.0) {
-    printf("%.5lf\n", log(x));
+    printf("%lf\n", log(x));
     fflush(stdout);
   }
   return 0;

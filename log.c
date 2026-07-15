@@ -1,9 +1,11 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 extern double sqrt(double x);
 extern double sumlog(double x);
 extern double log10(double x);
 extern double log(double x);
+
 double log(double x) {
   if (x < 0.0)
     return log(-x);
@@ -35,11 +37,11 @@ double sumlog(double x) {
   double i = 0.0;
   double dx = x - 1.0;
   double z = -1.0;
-  while (1) {
+  for (int i = 0; i < 100; i++) {
     i += 1.0;
     z *= (-dx);
     double eps = z / i;
-    if (z * z == 0)
+    if (z * z < 1e-18)
       break;
     y += eps;
   }
@@ -77,11 +79,15 @@ double exp(double x) {
   return y * y;
 }
 
-int main(void) {
-  for (double x = 2.0; x < 20.0; x += 1.0) {
-    printf("%lf\n", log(x));
-    fflush(stdout);
-  }
+int main(int argc, char *argv[]) {
+  printf("%.4lf\n", log(2));
+  printf("%.4lf\n", log(3));
+  printf("%.4lf\n", log(5));
+  printf("%.4lf\n", log(7));
+  printf("%.4lf\n", log(11));
+  printf("%.4lf\n", log(13));
+  printf("%.4lf\n", log(17));
+  printf("%.4lf\n", log(19));
   return 0;
 }
 

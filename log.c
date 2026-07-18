@@ -80,14 +80,8 @@ double exp(double x) {
 }
 
 int main(int argc, char *argv[]) {
-  printf("%.4lf\n", log(2));
-  printf("%.4lf\n", log(3));
-  printf("%.4lf\n", log(5));
-  printf("%.4lf\n", log(7));
-  printf("%.4lf\n", log(11));
-  printf("%.4lf\n", log(13));
-  printf("%.4lf\n", log(17));
-  printf("%.4lf\n", log(19));
+  printf("%.12lf\n", exp(5.4));
+  printf("%.12lf\n", exp(5.4 * log(3.2)));
   return 0;
 }
 

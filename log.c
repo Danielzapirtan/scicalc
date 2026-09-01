@@ -86,11 +86,11 @@ double zexp(double x) {
 }
 
 int main(int argc, char *argv[]) {
-  printf("%.6lf\n", zlog(10.0));
-  for (double i = 1.0; i < 100.0; i += 0.01) {
+  printf("%.12lf\n", zexp(1.0));
+/*  for (double i = 1.0; i < 100.0; i += 0.01) {
      printf("%.4lf %.5lf\n", i, zlog10(i));
      fflush(stdout);
-  }
+  }*/
   return 0;
 }
 

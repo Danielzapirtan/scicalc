@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define zeps 1.0e-14
+
 extern double zsqrt(double x);
 extern double sumzlog(double x);
 extern double zlog10(double x);
@@ -45,7 +47,7 @@ double sumzlog(double x) {
     i += 1.0;
     z *= (-dx);
     double eps = z / i;
-    if (zabs(eps) < 1e-7)
+    if (zabs(eps) < zeps)
       break;
     y += eps;
   }
@@ -64,7 +66,7 @@ double sumzexp(double x) {
   while (1) {
     double eps = p / f;
     y += eps;
-    if (eps < 1e-7)
+    if (eps < zeps)
       return y;
     i += 1.0;
     f *= i;

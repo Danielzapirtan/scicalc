@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define zeps 1.0e-14
+#define zeps 1e-15
 
 extern double zsqrt(double x);
 extern double sumzlog(double x);
@@ -33,7 +33,7 @@ double zsqrt(double x) {
     return 1.0 / zsqrt(1.0 / x);
   double y = 2.0;
   while (zabs(y - x / y) >= zeps) {
-    y -= (y * y - x) / (2.0 * y);
+    y -= (y * y - x) / (y + y);
   }
   return y;
 }
@@ -90,10 +90,10 @@ double zpow(double x, double y) {
 }
 
 int main(int argc, char *argv[]) {
-  printf("%.7le\n", zsqrt(2.0));
-  printf("%.7le\n", zpow(3.2, 5.4));
+  printf("%.12le\n", zsqrt(2.0));
+  printf("%.12le\n", zpow(3.2, 5.4));
   for (double i = 1.0; i < 10.0; i += 0.1) {
-     printf("%.1lf %.7le\n", i, zlog10(i));
+     printf("%.1lf %.12le\n", i, zlog10(i));
      fflush(stdout);
   }
   return 0;

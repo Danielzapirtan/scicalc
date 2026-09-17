@@ -90,9 +90,9 @@ double zpow(double x, double y) {
 }
 
 int main(int argc, char *argv[]) {
-  printf("%.7le\n", zexp(5.4));
+  printf("%.7le\n", zsqrt(2.0));
   printf("%.7le\n", zpow(3.2, 5.4));
-  for (double i = 1.0; i < 10.0; i += 1.0) {
+  for (double i = 1.0; i < 10.0; i += 0.1) {
      printf("%.1lf %.7le\n", i, zlog10(i));
      fflush(stdout);
   }

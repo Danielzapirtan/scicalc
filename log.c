@@ -32,7 +32,7 @@ double zsqrt(double x) {
   if (x < 1.0)
     return 1.0 / zsqrt(1.0 / x);
   double y = 2.0;
-  while (zabs(y - x / y) >= 1.0e-7) {
+  while (zabs(y - x / y) >= zeps) {
     y -= (y * y - x) / (2.0 * y);
   }
   return y;
@@ -85,12 +85,17 @@ double zexp(double x) {
   return y * y;
 }
 
+double zpow(double x, double y) {
+  return zexp(y * zlog(x));
+}
+
 int main(int argc, char *argv[]) {
-  printf("%.13le\n", zexp(1.0));
-/*  for (double i = 1.0; i < 100.0; i += 0.01) {
-     printf("%.4lf %.5lf\n", i, zlog10(i));
+  printf("%.7le\n", zexp(5.4));
+  printf("%.7le\n", zpow(3.2, 5.4));
+  for (double i = 1.0; i < 10.0; i += 1.0) {
+     printf("%.1lf %.7le\n", i, zlog10(i));
      fflush(stdout);
-  }*/
+  }
   return 0;
 }
 
